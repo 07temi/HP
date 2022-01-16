@@ -6,6 +6,7 @@
 //
 import Foundation
 
+
 class NetworkingManager {
     static var shared = NetworkingManager()
     private init() {}
@@ -31,3 +32,4 @@ class NetworkingManager {
 //не смог вернуть массив структур из функции (на что только не ругался компилятор)
 //отсюда и все остальные проблемы в виде как синглтон без инициализации сделать
 //плохо дело(
+//даже не понимаю в правильном ли направлениии двигаюсь
