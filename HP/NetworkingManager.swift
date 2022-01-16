@@ -19,15 +19,13 @@ class NetworkingManager {
             }
             do {
                 _ = try JSONDecoder().decode([Character].self, from: data)
-                
             } catch {
                 print(error.localizedDescription)
             }
-            
-            
         } .resume()
     }
 }
+
 
 //Что то я окончательно запутался
 //не смог вернуть массив структур из функции (на что только не ругался компилятор)
