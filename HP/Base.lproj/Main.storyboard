@@ -46,7 +46,7 @@
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <connections>
                                     <outlet property="collectionViewCellLabel" destination="W8o-rf-uT6" id="9gc-K9-M6J"/>
-                                    <segue destination="VG6-xc-9Yi" kind="show" id="haG-fB-MBq"/>
+                                    <segue destination="VG6-xc-9Yi" kind="show" identifier="characterDescriptionSegue" id="haG-fB-MBq"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -61,21 +61,33 @@
             </objects>
             <point key="canvasLocation" x="191.30434782608697" y="-12.053571428571429"/>
         </scene>
-        <!--View Controller-->
+        <!--Character Description View Controller-->
         <scene sceneID="2zT-Bh-bdL">
             <objects>
-                <viewController id="VG6-xc-9Yi" sceneMemberID="viewController">
+                <viewController id="VG6-xc-9Yi" customClass="CharacterDescriptionViewController" customModule="HP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GMg-3u-kwo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcy-f6-eud">
+                                <rect key="frame" x="20" y="128" width="194" height="245"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="y4S-iA-Zao"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="f7J-lQ-fVE"/>
+                    <connections>
+                        <outlet property="CharacterDescriptionLabel" destination="Xcy-f6-eud" id="y2h-rI-S2g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRw-2q-6hJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="-347"/>
+            <point key="canvasLocation" x="965" y="-394"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aeW-C8-AW3">
