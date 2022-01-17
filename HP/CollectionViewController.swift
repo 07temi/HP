@@ -9,9 +9,21 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController {
     
+    private var character: [Character] = []
+    
     override func viewDidLoad() {
-
+        fetchCharacter()
         }
+    
+    private func fetchCharacter() {
+        NetworkingManager.shared.getCharacterDescription{ character in
+            DispatchQueue.main.async {
+                self.character = character
+                self.collectionView.reloadData()
+            }
+            
+        }
+    }
     
 
     // MARK: UICollectionViewDataSource
@@ -22,14 +34,13 @@ class CollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        вернуть массив структур и count массива
-        5
+        character.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
     
-        cell.collectionViewCellLabel.text = "" // свойство name из массива структур
+        cell.collectionViewCellLabel.text = character[indexPath.item].name
     
         return cell
     }

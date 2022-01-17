@@ -16,6 +16,7 @@
 		7D33E6DF27946937005992CA /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33E6DE27946937005992CA /* CollectionViewCell.swift */; };
 		7D33E6E127947D33005992CA /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33E6E027947D33005992CA /* NetworkingManager.swift */; };
 		7D33E6E327947DA6005992CA /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33E6E227947DA6005992CA /* CharacterModel.swift */; };
+		7DD9019227956B6B00D40F93 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD9019127956B6B00D40F93 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		7D33E6DE27946937005992CA /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		7D33E6E027947D33005992CA /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		7D33E6E227947DA6005992CA /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		7DD9019127956B6B00D40F93 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				7D33E6DC279466C8005992CA /* CollectionViewController.swift */,
 				7D33E6DE27946937005992CA /* CollectionViewCell.swift */,
 				7D33E6E027947D33005992CA /* NetworkingManager.swift */,
+				7DD9019127956B6B00D40F93 /* DataManager.swift */,
 				7D33E6E227947DA6005992CA /* CharacterModel.swift */,
 				7D33E6CE27946618005992CA /* Main.storyboard */,
 				7D33E6D12794661A005992CA /* Assets.xcassets */,
@@ -150,6 +153,7 @@
 				7D33E6DD279466C8005992CA /* CollectionViewController.swift in Sources */,
 				7D33E6C927946618005992CA /* AppDelegate.swift in Sources */,
 				7D33E6DF27946937005992CA /* CollectionViewCell.swift in Sources */,
+				7DD9019227956B6B00D40F93 /* DataManager.swift in Sources */,
 				7D33E6E327947DA6005992CA /* CharacterModel.swift in Sources */,
 				7D33E6E127947D33005992CA /* NetworkingManager.swift in Sources */,
 				7D33E6CB27946618005992CA /* SceneDelegate.swift in Sources */,

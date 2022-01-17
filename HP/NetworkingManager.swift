@@ -6,12 +6,11 @@
 //
 import Foundation
 
-
 class NetworkingManager {
     static var shared = NetworkingManager()
     private init() {}
-    
-    func getCharacterDescription() {
+
+    func getCharacterDescription(completion: @escaping([Character]) -> Void) {
         guard let url = URL(string: "http://hp-api.herokuapp.com/api/characters") else { return }
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
@@ -19,17 +18,11 @@ class NetworkingManager {
                 return
             }
             do {
-                _ = try JSONDecoder().decode([Character].self, from: data)
+              let characters = try JSONDecoder().decode([Character].self, from: data)
+                completion(characters)
             } catch {
                 print(error.localizedDescription)
             }
         } .resume()
     }
 }
-
-
-//Что то я окончательно запутался
-//не смог вернуть массив структур из функции (на что только не ругался компилятор)
-//отсюда и все остальные проблемы в виде как синглтон без инициализации сделать
-//плохо дело(
-//даже не понимаю в правильном ли направлениии двигаюсь
