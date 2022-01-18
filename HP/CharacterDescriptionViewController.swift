@@ -9,12 +9,15 @@ import UIKit
 
 class CharacterDescriptionViewController: UIViewController {
     
-    let characterDescription = ""
+    var characterDescription: Character! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        CharacterDescriptionLabel.text = """
+\(characterDescription.actor)
+\(characterDescription.gender)
+\(characterDescription.dateOfBirth)
+"""
     }
     @IBOutlet weak var CharacterDescriptionLabel: UILabel!
     

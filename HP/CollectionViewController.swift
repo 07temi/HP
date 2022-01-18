@@ -10,7 +10,9 @@ import UIKit
 class CollectionViewController: UICollectionViewController {
     
     private var character: [Character] = []
-//    private var segueData: Character!
+    private var index = 0
+    
+    private var segueData: Character!
     
     override func viewDidLoad() {
         fetchCharacter()
@@ -18,14 +20,11 @@ class CollectionViewController: UICollectionViewController {
     
     private func fetchCharacter() {
         NetworkingManager.shared.getCharacterDescription{ character in
-            DispatchQueue.main.async {
-//                DataManager.share.character = character
+            DispatchQueue.main.sync { //как вернуться в sync чтобы получить доступ к переменной?
                 self.character = character
                 self.collectionView.reloadData()
             }
-            
         }
-//        print(DataManager.share.character.count)
     }
     
 
@@ -44,20 +43,22 @@ class CollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
     
         cell.collectionViewCellLabel.text = character[indexPath.item].name
-    
+        
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let segueData = character[indexPath.item]
-        print(segueData.actor)
+        index = indexPath.item
+        performSegue(withIdentifier: "characterDescriptionSegue", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "characterDescriptionSegue" {
             let characterDescriptionVC = segue.destination as! CharacterDescriptionViewController
-//            print(segueData.actor)
+            
+            characterDescriptionVC.characterDescription = character[index]
+            
         }
     }
 
