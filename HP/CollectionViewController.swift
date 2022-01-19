@@ -9,20 +9,34 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController {
     
-    private var character: [Character] = []
+    private var characters: [Character] = []
     private var index = 0
     
-    private var segueData: Character!
+//    private var segueData: Character!
     
     override func viewDidLoad() {
-        fetchCharacter()
+//        fetchCharacter()
+        fetchCharacter2()
+        navigationController?.navigationBar.topItem?.title = "Harry Potter characters"
         }
     
-    private func fetchCharacter() {
-        NetworkingManager.shared.getCharacterDescription{ character in
-            DispatchQueue.main.sync { //как вернуться в sync чтобы получить доступ к переменной?
-                self.character = character
+//    private func fetchCharacter() {
+//        NetworkingManager.shared.getCharacterDescription{ character in
+//            DispatchQueue.main.async { //как вернуться в sync чтобы получить доступ к переменной?
+//                self.characters = character
+//                self.collectionView.reloadData()
+//            }
+//        }
+//    }
+    
+    private func fetchCharacter2() {
+        NetworkingManager.shared.fetchData("http://hp-api.herokuapp.com/api/characters") { result in
+            switch result {
+            case .success(let characters):
+                self.characters = characters
                 self.collectionView.reloadData()
+            case .failure(let error):
+                print(error)
             }
         }
     }
@@ -36,13 +50,14 @@ class CollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        character.count
+        characters.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
     
-        cell.collectionViewCellLabel.text = character[indexPath.item].name
+        cell.collectionViewCellLabel.text = characters[indexPath.item].name
+        cell.configure(with: characters[indexPath.item])
         
         return cell
     }
@@ -57,7 +72,7 @@ class CollectionViewController: UICollectionViewController {
         if segue.identifier == "characterDescriptionSegue" {
             let characterDescriptionVC = segue.destination as! CharacterDescriptionViewController
             
-            characterDescriptionVC.characterDescription = character[index]
+            //characterDescriptionVC.characterDescription = characters[index]
             
         }
     }
@@ -66,6 +81,6 @@ class CollectionViewController: UICollectionViewController {
 
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width - 48, height: 80)
+        CGSize(width: UIScreen.main.bounds.width - 20, height: 80)
     }
 }
