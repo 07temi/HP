@@ -15,6 +15,16 @@ struct Character: Decodable {
     let patronus: String?
     let actor: String?
     let image: String?
+    
+    var description: String {
+        """
+    Name: \(name ?? "")
+    Actor: \(actor ?? "")
+    Gender: \(gender ?? "")
+    House: \(house ?? "")
+    Patronus: \(patronus ?? "")
+    """
+    }
 
     init(name: String, gender: String, house: String, dateOfBirth: String,
          eyeColour: String, hairColour: String, patronus: String, actor: String,

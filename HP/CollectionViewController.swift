@@ -10,7 +10,7 @@ import UIKit
 class CollectionViewController: UICollectionViewController {
     
     private var characters: [Character] = []
-    private var index = 0
+//    private var index = 0
     
 //    private var segueData: Character!
     
@@ -62,19 +62,18 @@ class CollectionViewController: UICollectionViewController {
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        index = indexPath.item
-        performSegue(withIdentifier: "characterDescriptionSegue", sender: nil)
-    }
+//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//
+//        index = indexPath.item
+//        //performSegue(withIdentifier: "characterDescriptionSegue", sender: nil)
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "characterDescriptionSegue" {
-            let characterDescriptionVC = segue.destination as! CharacterDescriptionViewController
-            
-            //characterDescriptionVC.characterDescription = characters[index]
-            
-        }
+        guard let indexPath = collectionView.indexPathsForSelectedItems else { return }
+        let character = characters[indexPath[0].item]
+        print(indexPath[0].item)
+        let descriptionVC = segue.destination as! CharacterDescriptionViewController
+        descriptionVC.characterDescription = character
     }
 
 }
