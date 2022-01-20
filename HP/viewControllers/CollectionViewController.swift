@@ -10,26 +10,30 @@ import UIKit
 class CollectionViewController: UICollectionViewController {
     
     private var characters: [Character] = []
-//    private var index = 0
-    
-//    private var segueData: Character!
     
     override func viewDidLoad() {
-//        fetchCharacter()
-        fetchCharacter2()
+        fetchCharacter()
         navigationController?.navigationBar.topItem?.title = "Harry Potter characters"
-        }
+    }
     
-//    private func fetchCharacter() {
-//        NetworkingManager.shared.getCharacterDescription{ character in
-//            DispatchQueue.main.async { //как вернуться в sync чтобы получить доступ к переменной?
-//                self.characters = character
-//                self.collectionView.reloadData()
-//            }
-//        }
-//    }
+    // MARK: UICollectionViewDataSource
     
-    private func fetchCharacter2() {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        characters.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
+        
+        cell.configure(from: characters[indexPath.item])
+        return cell
+    }
+    
+    private func fetchCharacter() {
         NetworkingManager.shared.fetchData("http://hp-api.herokuapp.com/api/characters") { result in
             switch result {
             case .success(let characters):
@@ -41,33 +45,6 @@ class CollectionViewController: UICollectionViewController {
         }
     }
     
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        characters.count
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-    
-        cell.collectionViewCellLabel.text = characters[indexPath.item].name
-        cell.configure(with: characters[indexPath.item])
-        
-        return cell
-    }
-    
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//        index = indexPath.item
-//        //performSegue(withIdentifier: "characterDescriptionSegue", sender: nil)
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = collectionView.indexPathsForSelectedItems else { return }
         let character = characters[indexPath[0].item]
@@ -75,7 +52,6 @@ class CollectionViewController: UICollectionViewController {
         let descriptionVC = segue.destination as! CharacterDescriptionViewController
         descriptionVC.characterDescription = character
     }
-
 }
 
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {

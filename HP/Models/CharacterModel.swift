@@ -25,6 +25,7 @@ struct Character: Decodable {
     Patronus: \(patronus ?? "")
     """
     }
+    var descriptionLinesCount = 5
 
     init(name: String, gender: String, house: String, dateOfBirth: String,
          eyeColour: String, hairColour: String, patronus: String, actor: String,

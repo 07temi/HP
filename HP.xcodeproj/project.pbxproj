@@ -80,19 +80,59 @@
 		7D33E6C727946618005992CA /* HP */ = {
 			isa = PBXGroup;
 			children = (
-				7D33E6C827946618005992CA /* AppDelegate.swift */,
-				7D33E6CA27946618005992CA /* SceneDelegate.swift */,
-				7D33E6DC279466C8005992CA /* CollectionViewController.swift */,
-				7DD9019327958F8100D40F93 /* CharacterDescriptionViewController.swift */,
-				7D33E6DE27946937005992CA /* CollectionViewCell.swift */,
-				7D33E6E027947D33005992CA /* NetworkingManager.swift */,
-				7D33E6E227947DA6005992CA /* CharacterModel.swift */,
+				7DB0A7302799CC40004B5ADB /* SupportItems */,
+				7DB0A72F2799C873004B5ADB /* viewControllers */,
+				7DB0A7332799CD07004B5ADB /* Views */,
+				7DB0A7322799CCED004B5ADB /* Services */,
+				7DB0A7312799CC67004B5ADB /* Models */,
 				7D33E6CE27946618005992CA /* Main.storyboard */,
-				7D33E6D12794661A005992CA /* Assets.xcassets */,
 				7D33E6D32794661A005992CA /* LaunchScreen.storyboard */,
-				7D33E6D62794661A005992CA /* Info.plist */,
 			);
 			path = HP;
+			sourceTree = "<group>";
+		};
+		7DB0A72F2799C873004B5ADB /* viewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7D33E6DC279466C8005992CA /* CollectionViewController.swift */,
+				7DD9019327958F8100D40F93 /* CharacterDescriptionViewController.swift */,
+			);
+			path = viewControllers;
+			sourceTree = "<group>";
+		};
+		7DB0A7302799CC40004B5ADB /* SupportItems */ = {
+			isa = PBXGroup;
+			children = (
+				7D33E6D62794661A005992CA /* Info.plist */,
+				7D33E6C827946618005992CA /* AppDelegate.swift */,
+				7D33E6CA27946618005992CA /* SceneDelegate.swift */,
+				7D33E6D12794661A005992CA /* Assets.xcassets */,
+			);
+			path = SupportItems;
+			sourceTree = "<group>";
+		};
+		7DB0A7312799CC67004B5ADB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D33E6E227947DA6005992CA /* CharacterModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7DB0A7322799CCED004B5ADB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7D33E6E027947D33005992CA /* NetworkingManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7DB0A7332799CD07004B5ADB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7D33E6DE27946937005992CA /* CollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CA7323F40BFC6711F2E1F6F8 /* Frameworks */ = {
@@ -375,7 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HP/Info.plist;
+				INFOPLIST_FILE = HP/SupportItems/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -404,7 +444,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HP/Info.plist;
+				INFOPLIST_FILE = HP/SupportItems/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
